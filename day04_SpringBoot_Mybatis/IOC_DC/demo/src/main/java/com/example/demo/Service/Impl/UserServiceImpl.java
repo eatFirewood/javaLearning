@@ -5,13 +5,23 @@ import com.example.demo.Pojo.User;
 import com.example.demo.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+//注解将对象交给IOC管理
+@Service
 public class UserServiceImpl implements UserService {
+    /**
+     * 依赖注入三种方式
+     */
+
+
+
+
+    //注解按照类型自动装配，完成依赖注入
     @Autowired
     UserDao userDao;
     @Override
