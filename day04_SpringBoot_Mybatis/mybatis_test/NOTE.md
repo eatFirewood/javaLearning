@@ -73,3 +73,8 @@ public void deleteById();
 @Delete("delete from user where id = #{id}")
 public void deleteById(Integer id);
 ```
+
+### 辅助配置
+
+在***properties***文件中加入mybatis.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+在控制台上显示日志

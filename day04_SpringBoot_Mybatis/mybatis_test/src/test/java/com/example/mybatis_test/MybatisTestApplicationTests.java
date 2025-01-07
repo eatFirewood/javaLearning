@@ -12,10 +12,7 @@ import java.util.List;
 class MybatisTestApplicationTests {
 
 
-    @Test
-    public void testDeleteById(){
-        userMapper.deleteById(1);
-    }
+
 
     @Autowired
     private UserMapper userMapper;
@@ -26,6 +23,21 @@ class MybatisTestApplicationTests {
         for (User user : userList) {
             System.out.println(user);
         }
+    }
+
+    @Test
+    public void testDeleteById(){
+        userMapper.deleteById(2);
+    }
+
+    @Test
+    public void testInsert(){
+        userMapper.insert("7", "aaa", "123456", "a", 20);
+    }
+
+    @Test
+    public void testUpdate(){
+        userMapper.update("7", "111b", 24);
     }
 
 
