@@ -3,7 +3,9 @@ package com.example.demo.Service.Impl;
 import com.example.demo.Dao.UserDao;
 import com.example.demo.Pojo.User;
 import com.example.demo.Service.UserService;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -14,15 +16,12 @@ import java.util.List;
 //注解将对象交给IOC管理
 @Service
 public class UserServiceImpl implements UserService {
-    /**
-     * 依赖注入三种方式
-     */
-
-
-
 
     //注解按照类型自动装配，完成依赖注入
-    @Autowired
+//    @Qualifier("userDaoImpl")
+//    @Autowired
+
+    @Resource(name = "userDaoImpl")
     UserDao userDao;
     @Override
     public List<User> function() throws IOException {

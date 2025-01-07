@@ -58,3 +58,59 @@
 ## 注意事项
 
 如果ioc容器中有多个相同类型的bean对象，比如在Dao层中现在有两个实现了UserDao接口的对象。
+
+### 三种解决方案
+
+1. @Primary
+
+   ```java
+   @Primary
+   @Repository
+   public class UserDaoImpl2 implements UserDao {
+   
+       @Override
+       public List<String> func() throws IOException {
+   
+           List<String> list = new ArrayList<>();
+           String a = "4, aaa, 123456, eatfirewood@gmail.com";
+           String b = "5, bbb, 123456, eatfirewood@gmail.com";
+           list.add(a);
+           list.add(b);
+   
+           return list;
+       }
+   }
+   ```
+   
+2. @Qualifier
+   ```java
+   @Service
+   public class UserServiceImpl implements UserService {
+   
+       //注解按照类型自动装配，完成依赖注入
+       @Qualifier("userDaoImpl")
+       @Autowired
+       UserDao userDao;
+       @Override
+       public List<User> function() throws IOException {
+   ```
+3. @Resource
+
+   ```java
+   @Service
+   public class UserServiceImpl implements UserService {
+   
+       //注解按照类型自动装配，完成依赖注入
+   //    @Qualifier("userDaoImpl")
+   //    @Autowired
+   
+       @Resource(name = "userDaoImpl")
+       UserDao userDao;
+       @Override
+       public List<User> function() throws IOException {
+           List<String> stringList = userDao.func();
+   ```
+   
+> 注解resource和autowired的区别：
+> 
+> aurwired是spring框架提供的注解，根据类型名完成依赖注入。resource是jdk提供的注解，按照名称注入
