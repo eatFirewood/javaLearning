@@ -78,3 +78,4 @@ public void deleteById(Integer id);
 
 在***properties***文件中加入mybatis.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
 在控制台上显示日志
+

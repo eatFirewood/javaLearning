@@ -1,0 +1,12 @@
+
+spring:
+  application:
+    name: mybatis_test
+  datasource:
+    url: jdbc:mysql://localhost:3306/db01
+    username: root
+    password: root
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml

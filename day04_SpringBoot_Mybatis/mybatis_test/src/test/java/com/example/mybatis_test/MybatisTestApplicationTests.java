@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Comparator;
 import java.util.List;
+
+import static java.util.Comparator.comparing;
 
 @SpringBootTest
 class MybatisTestApplicationTests {
-
-
-
 
     @Autowired
     private UserMapper userMapper;
@@ -25,24 +25,10 @@ class MybatisTestApplicationTests {
         }
     }
 
-    @Test
-    public void testDeleteById(){
-        userMapper.deleteById(2);
-    }
-
-    @Test
-    public void testInsert(){
-        userMapper.insert("7", "aaa", "123456", "a", 20);
-    }
-
-    @Test
-    public void testUpdate(){
-        userMapper.update("7", "111b", 24);
-    }
-
 
     @Test
     void contextLoads() {
+
     }
 
 }
